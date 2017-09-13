@@ -8,9 +8,9 @@ url = 'http://www2.correios.com.br/sistemas/rastreamento/resultado.cfm'
 params = { 'objetos': 'codigo-de-rastreamento' }
 headers = { 'Referer': 'http://www2.correios.com.br/sistemas/rastreamento/default.cfm' }
 
-html = requests.post(url, data=params, headers=headers)
-
 while True:
+    html = requests.post(url, data=params, headers=headers)
+    
     soup = BeautifulSoup(html.text, 'html.parser')
     text = soup.strong.text.encode('utf-8')
 
